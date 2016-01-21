@@ -36,7 +36,7 @@ angular.module('ionic-modal-select', [])
         scope: { initialOptions:"=options", optionGetter:"&", onSelect:"&", onReset:"&" },
         link: function (scope, iElement, iAttrs, ngModelController, transclude) {
             
-            var shortList;
+            var shortList = true;
             var shortListBreak = iAttrs.shortListBreak ? parseInt(iAttrs.shortListBreak) : 10;
             var setFromProperty= iAttrs.optionProperty;
             var onOptionSelect = iAttrs.optionGetter;
@@ -63,6 +63,7 @@ angular.module('ionic-modal-select', [])
                 //search stuff
                 hasSearch : iAttrs.hasSearch  !== "true" ? false : true,
                 searchValue : '',
+                searchPlaceholder : iAttrs.searchPlaceholder || 'Search',
                 subHeaderClass : iAttrs.subHeaderClass || 'bar-stable',
                 cancelSearchButton : iAttrs.cancelSearchButton || 'Clear',
 
